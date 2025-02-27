@@ -1,6 +1,11 @@
 [![Documentation Status](https://readthedocs.org/projects/pymysql/badge/?version=latest)](https://pymysql.readthedocs.io/)
 [![codecov](https://codecov.io/gh/PyMySQL/PyMySQL/branch/main/graph/badge.svg?token=ppEuaNXBW4)](https://codecov.io/gh/PyMySQL/PyMySQL)
 
+# PyMySQL - Riversoft version
+This fork is to solve the MySQL `connections.py` line 573 SQL query error. We faced this bug when using `langgraph` and specifically `langgraph-checkpoint-mysql` that has "start:something" as its value, thus the ":" crashes the original SQL call.
+
+The following is the original repo README.
+
 # PyMySQL
 
 This package contains a pure-Python MySQL and MariaDB client library, based on
