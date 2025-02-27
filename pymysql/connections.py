@@ -570,6 +570,8 @@ class Connection:
         # if DEBUG:
         #     print("DEBUG: sending query:", sql)
         if isinstance(sql, str):
+            sql = sql.replace("json_extract(checkpoint, concat('$.channel_versions.', channel))",
+                              """json_extract(checkpoint, concat('$.channel_versions."', channel, '"'))""")
             sql = sql.encode(self.encoding, "surrogateescape")
         self._execute_command(COMMAND.COM_QUERY, sql)
         self._affected_rows = self._read_query_result(unbuffered=unbuffered)
